@@ -28,11 +28,13 @@ export class Stopwatch {
   }
 
   stop() {
-    this.running = false;
-    this.stopTime += Date.now() - this.startTime;
-    this.startTime = null;
-    localStorage.setItem('kunugisoft_stopwatch_stoptime', this.stopTime);
-    localStorage.removeItem('kunugisoft_stopwatch_starttime');
+    if (this.startTime !== null) {
+      this.running = false;
+      this.stopTime += Date.now() - this.startTime;
+      this.startTime = null;
+      localStorage.setItem('kunugisoft_stopwatch_stoptime', this.stopTime);
+      localStorage.removeItem('kunugisoft_stopwatch_starttime');
+    }
   }
 
   reset() {
