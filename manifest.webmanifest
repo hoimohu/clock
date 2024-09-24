@@ -4,16 +4,36 @@
   "description": "オフラインでも使える時計とストップウォッチとタイマーです。",
   "icons": [
     {
-      "purpose": "maskable",
       "src": "128.png",
       "sizes": "128x128",
       "type": "image/png"
     },
     {
-      "purpose": "maskable",
       "src": "512.png",
       "sizes": "512x512",
       "type": "image/png"
+    },
+    {
+      "src": "1024.png",
+      "sizes": "1024x1024",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "screenshot_pc.jpeg",
+      "sizes": "1200x800",
+      "type": "image/jpeg",
+      "form_factor": "wide",
+      "label": "Screenshot of This App in Wide Screen"
+    },
+    {
+      "src": "screenshot_mobile.jpeg",
+      "sizes": "563x1000",
+      "type": "image/jpeg",
+      "form_factor": "narrow",
+      "label": "Screenshot of This App in Narrow Screen"
     }
   ],
   "start_url": "index.html",
