@@ -47,12 +47,14 @@ main {
   align-items: end;
 }
 
-.stopwatch_button_wrapper {
+.stopwatch_button_wrapper,
+.timer_button_wrapper {
   display: flex;
   justify-content: space-between;
 }
 
-.stopwatch_button_wrapper>button {
+.stopwatch_button_wrapper>button,
+.timer_button_wrapper>button {
   padding: 12px;
   border: 2px solid #000;
   border-radius: 10px;
@@ -61,10 +63,26 @@ main {
   cursor: pointer;
 }
 
-.stopwatch_button_wrapper>button:active {
+.stopwatch_button_wrapper>button:active,
+.timer_button_wrapper>button:active {
   filter: brightness(0.8);
 }
 
-.stopwatch_button_wrapper>button:nth-child(3) {
+.stopwatch_button_wrapper>button:nth-child(3),
+.timer_button_wrapper>button:nth-child(3) {
   background-color: #f77;
+}
+
+.timer_change_wrapper {
+  display: flex;
+}
+
+.timer_change_wrapper>label>input {
+  width: 80px;
+  font-size: 20px;
+}
+
+.timer_change_wrapper>label {
+  display: block;
+  margin: 10px;
 }

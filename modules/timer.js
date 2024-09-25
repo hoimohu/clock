@@ -60,7 +60,7 @@ export class Timer {
   start() {
     this.running = true;
     if (this.timerchange_wrapper !== null) {
-      this.timerTime = toTime(Number(hour_input.value), Number(minute_input.value), Number(second_input.value));
+      this.timerTime = toTime(Math.max(0, Number(this.hour_input.value)), Math.max(0, Number(this.minute_input.value)), Math.max(0, Number(this.second_input.value)));
       localStorage.setItem('kunugisoft_timer_timertime', this.timerTime);
       this.timerchange_wrapper.remove();
       this.timerchange_wrapper = null;
@@ -137,7 +137,7 @@ export class Timer {
     timerchange_wrapper.appendChild(second_label);
 
     this.wrapper.appendChild(timerchange_wrapper);
-    
+
     this.timerchange_wrapper = timerchange_wrapper;
     this.hour_input = hour_input;
     this.minute_input = minute_input;
