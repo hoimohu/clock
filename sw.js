@@ -1,4 +1,4 @@
-const CACHE_NAME = 'KUNUGISOFT_CLOCK_CACHE_1.1.2';
+const CACHE_NAME = 'KUNUGISOFT_CLOCK_CACHE_1.1.3';
 const PRE_CACHED_RESOURCES = [
     'index.html',
     'main.js',
@@ -6,9 +6,14 @@ const PRE_CACHED_RESOURCES = [
     'favicon.ico',
     '128.png',
     '512.png',
+    '1024.png',
+    'screenshot_mobile.jpeg',
+    'screenshot_pc.jpeg',
     'timer.mp3',
+    'manifest.webmanifest',
     'modules/clock.js',
-    'modules/stopwatch.js'
+    'modules/stopwatch.js',
+    'modules/timer.js'
 ];
 
 self.addEventListener("install", event => {
