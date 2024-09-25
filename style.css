@@ -86,3 +86,11 @@ main {
   display: block;
   margin: 10px;
 }
+
+.marginBottom {
+  margin-bottom: 30px;
+}
+
+.stopwatch_time_over {
+  background-color: #f77;
+}

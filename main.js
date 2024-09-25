@@ -24,6 +24,10 @@ function init() {
   timer_title.textContent = 'タイマー';
   main.appendChild(timer_title);
   main.appendChild(timer.wrapper);
+
+  const marginBottom = document.createElement('div');
+  marginBottom.classList.add('marginBottom');
+  main.appendChild(marginBottom);
 }
 
 window.onload = init;

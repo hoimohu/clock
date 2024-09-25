@@ -62,11 +62,7 @@ export class Timer {
     if (this.timerchange_wrapper !== null) {
       this.timerTime = toTime(Math.max(0, Number(this.hour_input.value)), Math.max(0, Number(this.minute_input.value)), Math.max(0, Number(this.second_input.value)));
       localStorage.setItem('kunugisoft_timer_timertime', this.timerTime);
-      this.timerchange_wrapper.remove();
-      this.timerchange_wrapper = null;
-      this.hour_input = null;
-      this.minute_input = null;
-      this.second_input = null;
+      this.removeChangeWrapper();
     }
     localStorage.removeItem('kunugisoft_timer_stoptime');
     if (this.startTime === null) {
@@ -82,6 +78,10 @@ export class Timer {
       this.startTime = null;
       localStorage.setItem('kunugisoft_timer_stoptime', this.stopTime);
       localStorage.removeItem('kunugisoft_timer_starttime');
+
+      const elapsed_time = this.stopTime + ((this.startTime !== null) ? Date.now() - this.startTime : 0);
+      let remaining_time = this.timerTime - elapsed_time;
+      if (remaining_time <= 0) this.reset();
     }
   }
 
@@ -144,6 +144,14 @@ export class Timer {
     this.second_input = second_input;
   }
 
+  removeChangeWrapper() {
+    this.timerchange_wrapper.remove();
+    this.timerchange_wrapper = null;
+    this.hour_input = null;
+    this.minute_input = null;
+    this.second_input = null;
+  }
+
   update() {
     const elapsed_time = this.stopTime + ((this.startTime !== null) ? Date.now() - this.startTime : 0);
     let remaining_time = this.timerTime - elapsed_time;
@@ -155,9 +163,12 @@ export class Timer {
         this.soundCount = 0;
       }
       remaining_time = 0;
+      this.wrapper.classList.add('stopwatch_time_over');
+    } else {
+      this.wrapper.classList.remove('stopwatch_time_over');
     }
 
-    remaining_time = Math.floor(remaining_time / 1000);
+    remaining_time = Math.floor(remaining_time / 1000 + 0.99);
     const second = remaining_time % 60;
     this.second1.textContent = (second / 10 >= 1) ? Math.floor(second / 10) : '0';
     this.second2.textContent = second % 10;
