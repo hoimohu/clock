@@ -92,56 +92,58 @@ export class Timer {
     localStorage.removeItem('kunugisoft_timer_stoptime');
     localStorage.removeItem('kunugisoft_timer_starttime');
 
-    const timerchange_wrapper = document.createElement('div');
-    timerchange_wrapper.classList.add('timer_change_wrapper');
+    if (this.timerchange_wrapper === null) {
+      const timerchange_wrapper = document.createElement('div');
+      timerchange_wrapper.classList.add('timer_change_wrapper');
 
-    let prevTime = this.timerTime;
-    prevTime = Math.floor(prevTime / 1000);
-    const second = prevTime % 60;
-    prevTime = Math.floor(prevTime / 60);
-    const minute = prevTime % 60;
-    prevTime = Math.floor(prevTime / 60);
-    const hour = prevTime % 60;
+      let prevTime = this.timerTime;
+      prevTime = Math.floor(prevTime / 1000);
+      const second = prevTime % 60;
+      prevTime = Math.floor(prevTime / 60);
+      const minute = prevTime % 60;
+      prevTime = Math.floor(prevTime / 60);
+      const hour = prevTime % 60;
 
-    const hour_label = document.createElement('label');
-    const hour_input = document.createElement('input');
-    hour_input.type = 'number';
-    hour_input.min = 0;
-    hour_input.step = 1;
-    hour_input.value = hour;
-    hour_label.appendChild(hour_input);
-    const hour_text = document.createTextNode('時間');
-    hour_label.appendChild(hour_text);
-    timerchange_wrapper.appendChild(hour_label);
-    const minute_label = document.createElement('label');
-    const minute_input = document.createElement('input');
-    minute_input.type = 'number';
-    minute_input.max = 59;
-    minute_input.min = 0;
-    minute_input.step = 1;
-    minute_input.value = minute;
-    minute_label.appendChild(minute_input);
-    const minute_text = document.createTextNode('分');
-    minute_label.appendChild(minute_text);
-    timerchange_wrapper.appendChild(minute_label);
-    const second_label = document.createElement('label');
-    const second_input = document.createElement('input');
-    second_input.type = 'number';
-    second_input.max = 59;
-    second_input.min = 0;
-    second_input.step = 1;
-    second_input.value = second;
-    second_label.appendChild(second_input);
-    const second_text = document.createTextNode('秒');
-    second_label.appendChild(second_text);
-    timerchange_wrapper.appendChild(second_label);
+      const hour_label = document.createElement('label');
+      const hour_input = document.createElement('input');
+      hour_input.type = 'number';
+      hour_input.min = 0;
+      hour_input.step = 1;
+      hour_input.value = hour;
+      hour_label.appendChild(hour_input);
+      const hour_text = document.createTextNode('時間');
+      hour_label.appendChild(hour_text);
+      timerchange_wrapper.appendChild(hour_label);
+      const minute_label = document.createElement('label');
+      const minute_input = document.createElement('input');
+      minute_input.type = 'number';
+      minute_input.max = 59;
+      minute_input.min = 0;
+      minute_input.step = 1;
+      minute_input.value = minute;
+      minute_label.appendChild(minute_input);
+      const minute_text = document.createTextNode('分');
+      minute_label.appendChild(minute_text);
+      timerchange_wrapper.appendChild(minute_label);
+      const second_label = document.createElement('label');
+      const second_input = document.createElement('input');
+      second_input.type = 'number';
+      second_input.max = 59;
+      second_input.min = 0;
+      second_input.step = 1;
+      second_input.value = second;
+      second_label.appendChild(second_input);
+      const second_text = document.createTextNode('秒');
+      second_label.appendChild(second_text);
+      timerchange_wrapper.appendChild(second_label);
 
-    this.wrapper.appendChild(timerchange_wrapper);
+      this.wrapper.appendChild(timerchange_wrapper);
 
-    this.timerchange_wrapper = timerchange_wrapper;
-    this.hour_input = hour_input;
-    this.minute_input = minute_input;
-    this.second_input = second_input;
+      this.timerchange_wrapper = timerchange_wrapper;
+      this.hour_input = hour_input;
+      this.minute_input = minute_input;
+      this.second_input = second_input;
+    }
   }
 
   removeChangeWrapper() {
