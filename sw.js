@@ -1,4 +1,4 @@
-const CACHE_NAME = 'KUNUGISOFT_CLOCK_CACHE_1.0.2';
+const CACHE_NAME = 'KUNUGISOFT_CLOCK_CACHE_1.1.0';
 const PRE_CACHED_RESOURCES = [
     'index.html',
     'main.js',
@@ -6,6 +6,7 @@ const PRE_CACHED_RESOURCES = [
     'favicon.ico',
     '128.png',
     '512.png',
+    'timer.mp3',
     'modules/clock.js',
     'modules/stopwatch.js'
 ];

@@ -38,7 +38,7 @@ export class Stopwatch {
   }
 
   reset() {
-    this.running = true;
+    this.running = false;
     this.startTime = null;
     this.stopTime = 0;
     localStorage.removeItem('kunugisoft_stopwatch_stoptime');
