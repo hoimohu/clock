@@ -1,4 +1,4 @@
-const CACHE_NAME = 'KUNUGISOFT_CLOCK_CACHE_1.1.3';
+const CACHE_NAME = 'KUNUGISOFT_CLOCK_CACHE_1.1.4';
 const PRE_CACHED_RESOURCES = [
     'index.html',
     'main.js',

@@ -4,7 +4,7 @@ import { Timer } from "./modules/timer.js";
 
 const main = document.getElementById('main');
 
-const clock = new Clock(100);
+const clock = new Clock();
 const stopwatch = new Stopwatch();
 const timer = new Timer();
 

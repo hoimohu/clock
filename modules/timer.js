@@ -36,7 +36,7 @@ export class Timer {
   stopTime = 0;
   timerTime = 600000;
   interval = -1;
-  soundCount = 0;
+  soundCount = 60;
   timerchange_wrapper = null;
   constructor(interval = -1, type) {
     this.interval = interval;
@@ -59,6 +59,7 @@ export class Timer {
 
   start() {
     this.running = true;
+    this.soundCount = 60;
     if (this.timerchange_wrapper !== null) {
       this.timerTime = toTime(Math.max(0, Number(this.hour_input.value)), Math.max(0, Number(this.minute_input.value)), Math.max(0, Number(this.second_input.value)));
       localStorage.setItem('kunugisoft_timer_timertime', this.timerTime);
@@ -170,7 +171,7 @@ export class Timer {
       this.wrapper.classList.remove('stopwatch_time_over');
     }
 
-    remaining_time = Math.floor(remaining_time / 1000 + 0.99);
+    remaining_time = Math.ceil(remaining_time / 1000);
     const second = remaining_time % 60;
     this.second1.textContent = (second / 10 >= 1) ? Math.floor(second / 10) : '0';
     this.second2.textContent = second % 10;
