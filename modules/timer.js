@@ -118,7 +118,6 @@ export class Timer {
       const minute_label = document.createElement('label');
       const minute_input = document.createElement('input');
       minute_input.type = 'number';
-      minute_input.max = 59;
       minute_input.min = 0;
       minute_input.step = 1;
       minute_input.value = minute;
@@ -129,7 +128,6 @@ export class Timer {
       const second_label = document.createElement('label');
       const second_input = document.createElement('input');
       second_input.type = 'number';
-      second_input.max = 59;
       second_input.min = 0;
       second_input.step = 1;
       second_input.value = second;
